@@ -51,7 +51,6 @@ namespace WindowsFormsApp1
             this.ShowInTaskbar = false;
             System.IO.Stream str = Properties.Resources.sound;
             System.Media.SoundPlayer snd = new System.Media.SoundPlayer(str);
-            MessageBox.Show(System.AppDomain.CurrentDomain.FriendlyName);
             string fileName = System.AppDomain.CurrentDomain.FriendlyName;
             string sourcePath = @AppDomain.CurrentDomain.BaseDirectory;
             string sourceFile = System.IO.Path.Combine(sourcePath, fileName);
