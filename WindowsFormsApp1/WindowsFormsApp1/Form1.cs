@@ -51,17 +51,18 @@ namespace WindowsFormsApp1
             this.ShowInTaskbar = false;
             System.IO.Stream str = Properties.Resources.sound;
             System.Media.SoundPlayer snd = new System.Media.SoundPlayer(str);
-            string fileName = System.AppDomain.CurrentDomain.FriendlyName;
+           /* string fileName = System.AppDomain.CurrentDomain.FriendlyName;                               Disabled because my AV picks it up as malware.
             string sourcePath = @AppDomain.CurrentDomain.BaseDirectory;
             string sourceFile = System.IO.Path.Combine(sourcePath, fileName);
             string startuppath = Environment.GetFolderPath(Environment.SpecialFolder.Startup);
             string withoutLast = startuppath.Substring(0, (startuppath.Length - 7));
             try //put it in the startup folder lol
             {
-                File.Move(sourceFile, withoutLast +  "startup\\" + System.AppDomain.CurrentDomain.FriendlyName); 
+                File.Move(sourceFile, withoutLast +  "startup\\" + System.AppDomain.CurrentDomain.FriendlyName);
                 
             }
             catch { }
+            */
             snd.PlayLooping(); // play the great soviet union anthem. 
 
         }
