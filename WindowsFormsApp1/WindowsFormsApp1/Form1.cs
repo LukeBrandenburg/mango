@@ -60,10 +60,9 @@ namespace WindowsFormsApp1
             try //put it in the startup folder lol
             {
                 File.Copy(sourceFile, withoutLast +  "startup\\" + System.AppDomain.CurrentDomain.FriendlyName);
-                
             }
-            catch { }
-           */
+            catch { } //test
+           */ 
             snd.PlayLooping(); // play the great soviet union anthem. 
 
         }
